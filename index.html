@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Morning of Sound &amp; Stillness · Institute for Ageless Living · Longmont, CO</title>
+<meta name="description" content="A one-day vibroacoustic sound journey with Treneti at the Institute for Ageless Living, Longmont, CO. July 11, 2026. Free demo sessions, RSVP to reserve your place.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Arapey:ital@0;1&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --primary:#1F1F1F; --gold:#E0BC5A; --gold-hover:#cda646;
+  --cream:#F6F4EE; --white:#FFFFFF; --body:#444444; --muted:#777777;
+  --hairline:#E6E6E6;
+  --white-80:rgba(255,255,255,.8); --white-60:rgba(255,255,255,.6); --gold-80:rgba(224,188,90,.8);
+  --serif:'Arapey',serif; --sans:'Quicksand',sans-serif;
+  --maxw:1440px; --pad:110px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--body);background:var(--white);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad);width:100%}
+.eyebrow{font-family:var(--sans);font-weight:500;letter-spacing:.094em;text-transform:uppercase}
+
+/* ===== Reveal motion (fade-up ~700ms ease-out, one-shot) ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s ease-out,transform .7s ease-out}
+.reveal.in{opacity:1;transform:none}
+/* Hero staggered entrance (translateX 50px -> 0, 0.5s ease-out) */
+.anim-x{opacity:0;transform:translateX(50px);transition:opacity .5s ease-out,transform .5s ease-out}
+.hero.ready .anim-x{opacity:1;transform:none}
+.hero.ready .d1{transition-delay:0s}
+.hero.ready .d2{transition-delay:.2s}
+.hero.ready .d3{transition-delay:.35s}
+.hero.ready .d4{transition-delay:.5s}
+@media (prefers-reduced-motion:reduce){
+  .reveal,.anim-x{opacity:1!important;transform:none!important;transition:none}
+  .hero-bg{animation:none!important}
+}
+
+/* ===== CTA button (identical to lhr.html) ===== */
+.cta{display:inline-flex;align-items:center;background:var(--gold);border-radius:68px;
+  padding:0 5px 0 28px;cursor:pointer;border:1px solid transparent;position:relative;overflow:hidden;isolation:isolate;
+  transition:color .3s ease-out,border-color .3s ease-out}
+.cta::after{content:"";position:absolute;top:5px;bottom:5px;right:5px;width:44px;border-radius:100px;
+  background:var(--primary);transition:width .4s ease;z-index:1;pointer-events:none}
+.cta:hover::after{width:calc(100% - 10px)}
+.cta:hover{border-color:var(--gold)}
+.cta .label{font-family:var(--sans);font-weight:600;font-size:16px;color:var(--primary);transition:color .3s ease-out;white-space:nowrap;padding-right:16px;position:relative;z-index:2}
+.cta:hover .label{color:var(--gold)}
+.cta .circle{width:44px;height:44px;border-radius:50%;background:transparent;display:flex;align-items:center;justify-content:center;flex:0 0 auto;position:relative;z-index:2}
+.cta .circle svg{width:18px;height:18px;stroke:var(--gold);transition:stroke .3s ease-out}
+
+/* ===== HEADER ===== */
+.nav{position:fixed;top:0;left:0;width:100%;z-index:100;transition:background-color .3s ease,box-shadow .3s ease}
+.nav-inner{max-width:var(--maxw);margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:34px var(--pad)}
+.nav-logo{height:54px;width:auto;transition:filter .3s ease}
+.nav-date{font-family:var(--sans);font-weight:500;font-size:14px;letter-spacing:.107em;color:#FFFFFFCC;transition:color .3s ease}
+.nav.sticky{background:#fff;box-shadow:0 5px 10px rgba(0,0,0,.08)}
+.nav.sticky .nav-inner{padding-top:20px;padding-bottom:20px}
+.nav.sticky .nav-logo{filter:brightness(0) saturate(0%) invert(11%)}
+.nav.sticky .nav-date{color:#1F1F1F99}
+.nav-right{display:flex;align-items:center;gap:24px}
+.nav-cta{display:none;transform:scale(.92)}
+.nav.sticky .nav-cta{display:inline-flex}
+
+/* ===== HERO ===== */
+.hero{position:relative;height:100vh;height:100dvh;min-height:800px;overflow:hidden;background:var(--primary)}
+.hero-bgwrap{position:absolute;inset:0;overflow:hidden}
+.hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:heroScale 40s linear infinite;will-change:transform}
+@keyframes heroScale{50%{transform:scale(1.12)}}
+.hero-scrim{position:absolute;inset:0;background:rgba(31,31,31,.5)}
+.hero-stage{position:relative;max-width:var(--maxw);height:100%;margin:0 auto}
+.hero-content{position:absolute;left:var(--pad);top:230px;width:680px;max-width:calc(100% - var(--pad)*2);display:flex;flex-direction:column;gap:24px}
+.hero-eyebrow{font-size:16px;letter-spacing:.094em;color:#FFFFFF99}
+.hero-h{display:flex;flex-direction:column}
+.hero-h span{font-family:var(--serif);font-weight:300;font-size:clamp(40px,7vw,72px);line-height:1.05}
+.hero-h .l1{color:#fff}
+.hero-h .l2{color:var(--gold);font-style:italic}
+.hero-sub{font-family:var(--sans);font-size:18px;line-height:1.55;color:#FFFFFFE6;max-width:520px}
+.hero-cta{margin-top:0}
+.facts{position:absolute;right:var(--pad);top:150px;width:360px;background:rgba(31,31,31,.78);border-radius:14px;padding:40px 36px;display:flex;flex-direction:column}
+.facts-eyebrow{font-size:14px;letter-spacing:.107em;color:#FFFFFF99}
+.fact-list{display:flex;flex-direction:column;gap:26px;padding-top:28px}
+.fact{display:flex;gap:16px;align-items:flex-start}
+.fact .fi{width:22px;height:22px;flex:0 0 auto;stroke:var(--gold);fill:none;stroke-width:1.8;margin-top:1px}
+.fact .f-txt{display:flex;flex-direction:column;gap:3px;background:none}
+.fact .fl{font-size:13px;font-weight:500;letter-spacing:.038em;color:#FFFFFF99}
+.fact .fv{font-size:16px;font-weight:500;color:#fff}
+.play-btn{position:absolute;left:50%;top:342px;transform:translateX(-50%);width:116px;height:116px;border-radius:58px;background:rgba(255,255,255,.15);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .3s ease}
+.play-btn:hover{background:rgba(255,255,255,.28)}
+.play-btn svg{width:40px;height:40px;fill:var(--gold);margin-left:5px}
+.play-btn.playing svg{margin-left:0}
+
+/* ===== WHAT'S HAPPENING ===== */
+.section{padding:100px var(--pad)}
+.section-inner{max-width:var(--maxw);margin:0 auto}
+.wh{background:#fff}
+.head-eyebrow{font-size:16px;letter-spacing:.094em}
+.title-2{font-family:var(--serif);font-weight:300;font-size:clamp(32px,5vw,52px);line-height:1.1;display:flex;flex-wrap:wrap;gap:0 14px;align-items:flex-end}
+.title-2 .roman{color:var(--primary)}
+.title-2 .ital{color:var(--gold);font-style:italic}
+.wh-head{margin-bottom:48px;display:flex;flex-direction:column;gap:14px}
+.wh-head .head-eyebrow{color:#1F1F1F99}
+.bento1{display:grid;grid-template-columns:1fr 420px;gap:24px;height:380px;margin-bottom:24px}
+.bento2{display:grid;grid-template-columns:360px 1fr 300px;gap:24px;height:300px}
+.tile{border-radius:14px;overflow:hidden;position:relative}
+.img-tile{position:relative;display:flex;align-items:flex-end;padding:32px}
+.img-tile.sm{padding:24px}
+.img-tile .tile-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .4s ease-in-out}
+.chip{position:relative;z-index:2;background:rgba(31,31,31,.7);border-radius:8px;padding:10px 16px;font-size:15px;font-weight:500;color:#fff}
+.img-tile.sm .chip{padding:9px 14px;font-size:14px}
+.text-tile{background:var(--primary);padding:44px;display:flex;flex-direction:column;justify-content:center;gap:16px;transition:transform .3s ease-in-out}
+.text-tile.gold{background:var(--gold);padding:40px;gap:14px}
+.text-tile .ti{width:30px;height:30px;stroke-width:1.8;fill:none}
+.text-tile .tt{font-family:var(--serif);font-weight:300;font-size:30px;line-height:1.15;color:#fff}
+.text-tile.gold .tt{font-size:28px;color:var(--primary)}
+.text-tile .tb{font-family:var(--sans);font-size:16px;line-height:1.55;color:#FFFFFFCC}
+.text-tile.gold .ti{stroke:var(--primary)}
+.text-tile.gold .tb{font-size:15px;line-height:1.5;color:#1F1F1FCC}
+
+/* ===== FEATURED TREATMENT ===== */
+.ft{background:var(--cream)}
+.ft-inner{display:grid;grid-template-columns:1fr 560px;gap:64px;align-items:center}
+.ft-imgs{display:flex;flex-direction:column;gap:20px}
+.ft-imgs .land{width:100%;height:300px;object-fit:cover;border-radius:14px 200px 14px 14px}
+.ft-imgs .port{width:100%;height:360px;object-fit:cover;border-radius:14px}
+.ft-copy{display:flex;flex-direction:column;gap:24px}
+.ft-copy .head-eyebrow{color:#1F1F1F99;letter-spacing:.063em}
+.ft-title{font-family:var(--serif);font-weight:300;font-size:clamp(32px,5vw,48px);line-height:1.05}
+.ft-title .roman{color:var(--primary)}
+.ft-title .ital{color:var(--gold);font-style:italic}
+.ft-body{font-size:17px;line-height:1.6;color:var(--body);max-width:520px}
+.benefits{display:flex;flex-direction:column;gap:12px}
+.benefit{display:flex;align-items:center;gap:12px;font-size:16px;color:var(--primary)}
+.benefit .bc{width:22px;height:22px;flex:0 0 auto;border-radius:50%;background:rgba(224,188,90,.18);display:flex;align-items:center;justify-content:center}
+.benefit .bc svg{width:13px;height:13px;stroke:var(--gold-hover);stroke-width:2.6;fill:none}
+
+/* ===== SCHEDULE ===== */
+.sched{background:var(--primary)}
+.sched .head-eyebrow{color:#FFFFFF99;letter-spacing:.063em}
+.sched-head{max-width:760px;display:flex;flex-direction:column;gap:14px;margin-bottom:64px}
+.sched-head .title-2 .roman{color:#fff}
+.timeline{position:relative}
+.tl-track{position:relative;height:16px;margin-bottom:34px}
+.tl-line{position:absolute;left:6px;right:6px;top:7px;height:2px;background:#FFFFFF26}
+.tl-dot{position:absolute;top:0;width:16px;height:16px;border-radius:50%;background:var(--gold)}
+.tl-dot.d0{left:0}
+.tl-dot.d1{left:50%;transform:translateX(-50%)}
+.tl-dot.d2{right:0}
+.steps{display:flex;justify-content:space-between;gap:40px}
+.step{width:340px;display:flex;flex-direction:column;gap:10px;cursor:pointer;transition:transform .3s ease-in-out}
+.step.right{text-align:right;align-items:flex-end}
+.step .stime{font-family:var(--serif);font-weight:300;font-style:italic;font-size:24px;color:var(--gold);transition:opacity .3s ease-in-out}
+.step .stitle{font-family:var(--sans);font-weight:600;font-size:20px;color:#fff;align-self:flex-start;background-image:linear-gradient(var(--gold),var(--gold));background-repeat:no-repeat;background-position:left bottom;background-size:0% 2px;transition:background-size .3s ease,color .3s ease}
+.step.right .stitle{align-self:flex-end;background-position:right bottom}
+.step .sdesc{font-size:15px;line-height:1.5;color:#FFFFFFB3}
+
+/* Hover on devices with a mouse; tap-to-toggle on touch screens */
+@media (hover:hover){
+  .img-tile:hover .tile-bg{transform:scale(1.08)}
+  .text-tile:hover{transform:translateY(-2px)}
+  .step:hover{transform:translateY(-3px)}
+  .step:hover .stitle{background-size:100% 2px;color:var(--gold)}
+  .step:hover .stime{opacity:.85}
+}
+.img-tile.tap .tile-bg{transform:scale(1.08)}
+.text-tile.tap{transform:translateY(-2px)}
+.step.tap{transform:translateY(-3px)}
+.step.tap .stitle{background-size:100% 2px;color:var(--gold)}
+.step.tap .stime{opacity:.85}
+.cta:active::after{width:calc(100% - 10px)}
+.cta:active .label{color:var(--gold)}
+
+/* ===== RSVP ===== */
+.rsvp{background:linear-gradient(rgba(31,31,31,.84),rgba(31,31,31,.84)),url('images/vibroacoustic-beds-6-1024x683.webp');background-size:cover;background-position:center}
+.rsvp-inner{display:grid;grid-template-columns:1fr 540px;gap:80px;align-items:center}
+.rsvp-copy{display:flex;flex-direction:column;gap:24px}
+.rsvp-copy .head-eyebrow{color:#FFFFFF99}
+.rsvp-title{font-family:var(--serif);font-weight:300;font-size:clamp(36px,6vw,58px);line-height:1.05}
+.rsvp-title .roman{color:#fff}
+.rsvp-title .ital{color:var(--gold);font-style:italic}
+.rsvp-note{font-size:18px;line-height:1.55;color:#FFFFFFE6;max-width:440px}
+.reassure{display:flex;flex-direction:column;gap:12px;padding-top:8px}
+.reassure-row{display:flex;align-items:center;gap:12px;font-size:16px;color:#FFFFFFE6}
+.reassure-row .bc{width:22px;height:22px;flex:0 0 auto;border-radius:50%;background:rgba(224,188,90,.18);display:flex;align-items:center;justify-content:center}
+.reassure-row .bc svg{width:13px;height:13px;stroke:var(--gold);stroke-width:2.6;fill:none}
+.form-card{background:var(--cream);border-radius:14px;padding:40px;display:flex;flex-direction:column;gap:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.field{display:flex;flex-direction:column;gap:8px}
+.field label{font-family:var(--sans);font-weight:500;font-size:14px;color:var(--primary)}
+.field input,.field textarea{font-family:var(--sans);font-size:15px;color:var(--primary);background:#fff;border:1px solid #E6E2D8;border-radius:8px;padding:13px 15px;outline:none;transition:border-color .3s ease-in-out}
+.field input::placeholder,.field textarea::placeholder{color:#9b968c}
+.field input:focus,.field textarea:focus{border-color:var(--gold)}
+.field textarea{resize:vertical;min-height:70px}
+.form-card .cta{align-self:flex-start;margin-top:8px}
+
+/* ===== LOCATION MAP ===== */
+.map-sec{position:relative;height:520px;overflow:hidden;background:#E8EAED}
+.map-sec iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.15)}
+.map-stage{position:relative;max-width:var(--maxw);height:100%;margin:0 auto;pointer-events:none}
+.info-card{position:absolute;right:var(--pad);top:120px;width:440px;background:#fff;border-radius:14px;box-shadow:0 5px 10px rgba(0,0,0,.1);padding:36px;display:flex;flex-direction:column;gap:20px;pointer-events:auto}
+.info-card .ic-eyebrow{font-size:14px;font-weight:500;letter-spacing:.071em;color:#1F1F1F99}
+.info-card .ic-title{font-family:var(--serif);font-weight:300;font-size:28px;line-height:1.1;color:var(--primary)}
+.info-card .ic-addr{font-size:16px;line-height:1.5;color:var(--body)}
+
+/* ===== FAQ ===== */
+.faq{background:#fff}
+.faq-inner{display:grid;grid-template-columns:380px 1fr;gap:80px;align-items:start}
+.faq-head{display:flex;flex-direction:column;gap:16px}
+.faq-head .head-eyebrow{color:#1F1F1F99}
+.faq-head .sub{font-size:16px;line-height:1.55;color:var(--body)}
+.faq-list{display:flex;flex-direction:column}
+.qa{border-top:1px solid var(--hairline)}
+.qa .q-row{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 0;cursor:pointer}
+.qa .q{font-family:var(--serif);font-weight:300;font-size:22px;line-height:1.25;color:var(--primary);transition:color .3s ease-in-out}
+.qa:hover .q,.qa.open .q{color:var(--gold-hover)}
+.qa .ic{position:relative;width:20px;height:20px;flex:0 0 auto}
+.qa .ic::before,.qa .ic::after{content:"";position:absolute;background:var(--gold-hover);border-radius:1px;transition:transform .3s ease}
+.qa .ic::before{left:0;top:9px;width:20px;height:2px}
+.qa .ic::after{left:9px;top:0;width:2px;height:20px}
+.qa.open .ic::after{transform:scaleY(0)}
+.qa .a-wrap{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.qa .a{display:block;font-size:16px;line-height:1.6;color:var(--body);padding-bottom:28px;padding-right:40px}
+
+/* ===== FOOTER (from lhr.html) ===== */
+.footer{background:var(--primary);color:var(--white);padding:80px var(--pad) 40px;display:flex;flex-direction:column;gap:48px;width:100%}
+.footer-top{display:flex;justify-content:space-between;gap:64px}
+.footer-brand{width:380px;display:flex;flex-direction:column;align-items:flex-start;gap:32px}
+.footer-brand img{height:56px;width:auto;max-width:220px;align-self:flex-start;object-fit:contain;filter:brightness(0) invert(1);transition:filter .5s ease,transform .5s ease;cursor:pointer}
+.footer-brand img:hover{filter:brightness(0) invert(1) drop-shadow(0 0 10px rgba(224,188,90,0.7)) drop-shadow(0 0 24px rgba(224,188,90,0.45));transform:scale(1.03)}
+.footer-blurb{font-family:var(--serif);font-style:italic;font-weight:400;font-size:20px;line-height:1.4;color:var(--white-80)}
+.footer-socials{display:flex;gap:16px}
+.footer-soc{width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.1);display:inline-flex;align-items:center;justify-content:center;color:var(--white);transition:background .3s ease-in-out,transform .3s ease-in-out}
+.footer-soc:hover{background:var(--gold);color:var(--primary);transform:scale(1.1)}
+.footer-soc .icon{width:20px;height:20px}
+.footer-cols{display:flex;gap:64px;justify-content:flex-end}
+.footer-col{display:flex;flex-direction:column;gap:18px;min-width:160px}
+.footer-col-label{font-family:var(--sans);font-size:13px;font-weight:600;letter-spacing:1.4px;color:var(--gold);text-transform:uppercase}
+.footer-col-val{font-family:var(--sans);font-size:14px;color:var(--white-80);transition:color .3s ease-in-out}
+a.footer-col-val:hover{color:var(--gold)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--white-60)}
+.footer-copy{font-size:13px;color:var(--white-60)}
+.footer-line{font-family:var(--serif);font-style:italic;font-weight:400;font-size:14px;color:var(--gold-80)}
+
+/* ===== VIDEO MODAL ===== */
+.modal{position:fixed;inset:0;background:rgba(15,15,15,.88);z-index:200;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .3s ease}
+.modal.open{display:flex;opacity:1}
+.modal-box{position:relative;width:100%;max-width:1000px}
+.modal-box video{width:100%;border-radius:12px;display:block}
+.modal-close{position:absolute;top:-44px;right:0;background:none;border:none;color:#fff;cursor:pointer;width:34px;height:34px}
+.modal-close svg{width:30px;height:30px;stroke:#fff;stroke-width:2}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width:1240px){
+  :root{--pad:56px}
+}
+@media (max-width:1100px){
+  .hero{height:auto;min-height:100vh;min-height:100dvh}
+  .hero-stage{display:flex;flex-direction:column;justify-content:center;gap:28px;padding:120px var(--pad) 56px;min-height:100vh;min-height:100dvh}
+  .hero-content{position:static;width:auto;max-width:600px;top:auto;left:auto;order:1}
+  .play-btn{position:static;transform:none;margin:0;align-self:center;order:2}
+  .facts{position:static;width:100%;max-width:520px;order:3}
+  .ft-inner{grid-template-columns:1fr;gap:40px}
+  .ft-body{max-width:none}
+  .rsvp-inner{grid-template-columns:1fr;gap:48px}
+  .rsvp-note{max-width:none}
+  .faq-inner{grid-template-columns:1fr;gap:40px}
+  .info-card{right:auto;left:50%;transform:translateX(-50%);top:auto;bottom:32px;width:calc(100% - var(--pad)*2);max-width:440px}
+}
+@media (max-width:900px){
+  .bento1{grid-template-columns:1fr;height:auto}
+  .bento1 .tile{height:300px}
+  .bento2{grid-template-columns:1fr;height:auto}
+  .bento2 .tile{height:260px}
+  .steps{flex-direction:column;gap:32px}
+  .step,.step.right{width:auto;text-align:left;align-items:flex-start}
+  .step.right .stime,.step.right .stitle,.step.right .sdesc{text-align:left}
+  .step.right .stitle{align-self:flex-start;background-position:left bottom}
+  .tl-track{display:none}
+  .step{border-left:2px solid #FFFFFF26;padding-left:20px}
+  .step .stime{font-size:22px}
+  .footer-top{flex-direction:column;gap:32px}
+  .footer-brand{width:100%}
+  .footer-cols{justify-content:flex-start;flex-wrap:wrap;gap:32px}
+}
+@media (max-width:640px){
+  :root{--pad:22px}
+  .nav-date{display:none}
+  .section{padding:72px var(--pad)}
+  .form-card{padding:28px}
+  .form-row{grid-template-columns:1fr}
+  .text-tile{padding:32px}
+  .footer-top{flex-direction:column}
+  .footer-brand{width:100%}
+  .footer-cols{gap:24px;width:100%}
+  .footer-col{min-width:140px;flex:1 1 140px}
+  .footer-bottom{flex-direction:column;align-items:flex-start;gap:12px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top"><img src="images/ageless-logo.png" alt="Institute for Ageless Living" class="nav-logo"></a>
+    <div class="nav-right">
+      <span class="nav-date">JULY 11, 2026</span>
+      <a href="#rsvp" class="cta nav-cta"><span class="label">RSVP</span><span class="circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <div class="hero-bgwrap">
+    <video class="hero-bg" autoplay muted loop playsinline poster="images/hero-poster.jpg">
+      <source src="images/event-video-12mb.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-scrim"></div>
+  <div class="hero-stage">
+    <div class="hero-content">
+      <span class="hero-eyebrow eyebrow anim-x d1">A One-Day Sound Healing Experience</span>
+      <div class="hero-h anim-x d1">
+        <span class="l1">A morning of</span>
+        <span class="l2">sound &amp; stillness</span>
+      </div>
+      <p class="hero-sub anim-x d2">A one-day vibroacoustic sound journey with Treneti at the Institute for Ageless Living in Longmont, CO.</p>
+      <div class="hero-cta anim-x d3">
+        <a href="#rsvp" class="cta"><span class="label">Reserve your spot</span><span class="circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+      </div>
+    </div>
+    <aside class="facts anim-x d2">
+      <span class="facts-eyebrow eyebrow">The Essentials</span>
+      <div class="fact-list">
+        <div class="fact">
+          <svg class="fi" viewBox="0 0 24 24" fill="none" stroke="#E0BC5A" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <div class="f-txt"><span class="fl">Date</span><span class="fv">Sat, July 11, 2026</span></div>
+        </div>
+        <div class="fact">
+          <svg class="fi" viewBox="0 0 24 24" fill="none" stroke="#E0BC5A" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l2 2M9 2h6"/></svg>
+          <div class="f-txt"><span class="fl">Time</span><span class="fv">9:00 AM - 1:00 PM</span></div>
+        </div>
+        <div class="fact">
+          <svg class="fi" viewBox="0 0 24 24" fill="none" stroke="#E0BC5A" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <div class="f-txt"><span class="fl">Location</span><span class="fv">Longmont, CO</span></div>
+        </div>
+        <div class="fact">
+          <svg class="fi" viewBox="0 0 24 24" fill="none" stroke="#E0BC5A" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          <div class="f-txt"><span class="fl">Demos</span><span class="fv">Free vibroacoustic sessions</span></div>
+        </div>
+        <div class="fact">
+          <svg class="fi" viewBox="0 0 24 24" fill="none" stroke="#E0BC5A" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4zM6 1v3M10 1v3M14 1v3"/></svg>
+          <div class="f-txt"><span class="fl">Refreshments</span><span class="fv">Light snacks &amp; drinks</span></div>
+        </div>
+      </div>
+    </aside>
+    <button class="play-btn" id="playBtn" aria-label="Play ambient sound">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </button>
+    <audio id="ambientAudio" loop preload="none" src="images/ambient-1mb.mp3"></audio>
+  </div>
+</section>
+
+<!-- ============ WHAT'S HAPPENING ============ -->
+<section class="section wh">
+  <div class="section-inner">
+    <div class="wh-head reveal">
+      <span class="head-eyebrow eyebrow">What's Happening</span>
+      <div class="title-2"><span class="roman">A day made</span><span class="ital">to resonate</span></div>
+    </div>
+    <div class="bento1 reveal">
+      <div class="tile img-tile">
+        <img class="tile-bg" src="images/interior1.jpg" alt="The main room">
+        <span class="chip">Live ambient set in the main room</span>
+      </div>
+      <div class="tile text-tile">
+        <svg class="ti" viewBox="0 0 24 24" fill="none" stroke="#E0BC5A" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+        <span class="tt">Primordial Flowstate DJ set</span>
+        <span class="tb">Treneti spins a live, immersive ambient set while guests move freely through the space.</span>
+      </div>
+    </div>
+    <div class="bento2 reveal">
+      <div class="tile img-tile sm">
+        <img class="tile-bg" src="images/vibroacoustic-beds-3-1024x1536.webp" alt="Vibroacoustic demo room">
+        <span class="chip">Vibroacoustic demo room</span>
+      </div>
+      <div class="tile text-tile gold">
+        <svg class="ti" viewBox="0 0 24 24" fill="none" stroke="#1F1F1F" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12c1.5 0 1.5-3 3-3s1.5 6 3 6 1.5-9 3-9 1.5 12 3 12 1.5-6 3-6 1.5 3 3 3"/></svg>
+        <span class="tt">Healing the nervous system with sound</span>
+        <span class="tb">A guided sound-healing workshop led by sound artist Treneti to open the day.</span>
+      </div>
+      <div class="tile img-tile sm">
+        <img class="tile-bg" src="images/treneti.webp" alt="Treneti closing concert">
+        <span class="chip">Closing concert</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURED TREATMENT ============ -->
+<section class="section ft">
+  <div class="section-inner ft-inner">
+    <div class="ft-imgs reveal">
+      <img class="land" src="images/vibroacoustic-beds-2-scaled.webp" alt="Vibroacoustic sound bed">
+      <img class="port" src="images/vibroacoustic-beds-1-scaled.webp" alt="Vibroacoustic therapy session">
+    </div>
+    <div class="ft-copy reveal">
+      <span class="head-eyebrow eyebrow">Featured Treatment</span>
+      <div class="ft-title"><span class="roman">Vibroacoustic</span> <span class="ital">therapy</span></div>
+      <p class="ft-body">Low-frequency sound vibrations travel through a specialized BioVibe sound bed, paired with Primordial's therapeutic music. Lying fully clothed, calibrated frequencies move through the body to calm the nervous system, ease tension, and bring deep rest. Completely non-invasive.</p>
+      <div class="benefits">
+        <div class="benefit"><span class="bc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Deep stress &amp; anxiety relief</div>
+        <div class="benefit"><span class="bc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Chronic pain &amp; tension reduction</div>
+        <div class="benefit"><span class="bc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Improved sleep quality</div>
+        <div class="benefit"><span class="bc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Mood support &amp; emotional balance</div>
+        <div class="benefit"><span class="bc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Post-workout &amp; recovery support</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SCHEDULE ============ -->
+<section class="section sched">
+  <div class="section-inner">
+    <div class="sched-head reveal">
+      <span class="head-eyebrow eyebrow">The Schedule</span>
+      <div class="title-2"><span class="roman">How the morning</span><span class="ital">unfolds</span></div>
+    </div>
+    <div class="timeline reveal">
+      <div class="tl-track">
+        <div class="tl-line"></div>
+        <span class="tl-dot d0"></span>
+        <span class="tl-dot d1"></span>
+        <span class="tl-dot d2"></span>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <span class="stime">9:00-10:00 AM</span>
+          <span class="stitle">Workshop Seminar</span>
+          <span class="sdesc">“Healing the Nervous System with Sound” with Treneti, an opening exploration of how sound shapes the body.</span>
+        </div>
+        <div class="step">
+          <span class="stime">10:00 AM-12:30 PM</span>
+          <span class="stitle">Demos &amp; DJ Set</span>
+          <span class="sdesc">Mingle to a Primordial Flowstate DJ set while taking turns receiving demo sessions in the therapy room. Light snacks &amp; beverages.</span>
+        </div>
+        <div class="step right">
+          <span class="stime">12:30-1:00 PM</span>
+          <span class="stitle">Closing Concert</span>
+          <span class="sdesc">“Primordial Odyssey of Peace,” a live music therapy concert with Treneti to close the day.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RSVP ============ -->
+<section class="section rsvp" id="rsvp">
+  <div class="section-inner rsvp-inner">
+    <div class="rsvp-copy reveal">
+      <span class="head-eyebrow eyebrow">RSVP</span>
+      <div class="rsvp-title"><span class="roman">Save your</span> <span class="ital">seat</span></div>
+      <p class="rsvp-note">Spots are limited, so RSVP to reserve your place.</p>
+      <div class="reassure">
+        <div class="reassure-row"><span class="bc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Free vibroacoustic demo sessions</div>
+        <div class="reassure-row"><span class="bc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>Light snacks &amp; beverages provided</div>
+        <div class="reassure-row"><span class="bc"><svg viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>No experience necessary</div>
+      </div>
+    </div>
+    <form class="form-card reveal" onsubmit="return false">
+      <div class="form-row">
+        <div class="field"><label for="fn">First name</label><input id="fn" type="text" placeholder="Jane" autocomplete="given-name"></div>
+        <div class="field"><label for="ln">Last name</label><input id="ln" type="text" placeholder="Doe" autocomplete="family-name"></div>
+      </div>
+      <div class="field"><label for="em">Email</label><input id="em" type="email" placeholder="jane@email.com" autocomplete="email"></div>
+      <div class="field"><label for="ph">Phone number</label><input id="ph" type="tel" placeholder="(720) 000-0000" autocomplete="tel"></div>
+      <div class="field"><label for="msg">Anything we should know? (optional)</label><textarea id="msg" placeholder="Share any needs or questions"></textarea></div>
+      <button type="submit" class="cta"><span class="label">Reserve my spot</span><span class="circle"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></button>
+    </form>
+  </div>
+</section>
+
+<!-- ============ LOCATION MAP ============ -->
+<section class="map-sec">
+  <iframe title="Institute for Ageless Living location map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Institute%20for%20Ageless%20Living%2C%201551%20Professional%20Lane%20Unit%20102%2C%20Longmont%2C%20CO%2080501&z=15&output=embed"></iframe>
+  <div class="map-stage">
+    <div class="info-card">
+      <span class="ic-eyebrow">FIND US</span>
+      <span class="ic-title">Institute for Ageless Living</span>
+      <span class="ic-addr">1551 Professional Lane, Unit 102<br>Longmont, CO 80501</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section faq">
+  <div class="section-inner faq-inner">
+    <div class="faq-head reveal">
+      <span class="head-eyebrow eyebrow">Good to Know</span>
+      <div class="title-2"><span class="roman">Questions,</span><span class="ital">answered</span></div>
+      <p class="sub">Everything you need to know before you arrive.</p>
+    </div>
+    <div class="faq-list reveal">
+      <div class="qa"><div class="q-row"><span class="q">What is vibroacoustic therapy?</span><span class="ic"></span></div><div class="a-wrap"><span class="a">Low-frequency sound vibrations are delivered through a specialized sound bed so you feel the music in your body. It gently calms the nervous system and is completely non-invasive, and you stay fully clothed throughout.</span></div></div>
+      <div class="qa"><div class="q-row"><span class="q">Do I need any experience?</span><span class="ic"></span></div><div class="a-wrap"><span class="a">None at all. Wear comfortable clothes and arrive hydrated, and that's all you need to take part.</span></div></div>
+      <div class="qa"><div class="q-row"><span class="q">Are the demo sessions really free?</span><span class="ic"></span></div><div class="a-wrap"><span class="a">Yes. Complimentary turns on the BioVibe sound bed are available to guests throughout the event.</span></div></div>
+      <div class="qa"><div class="q-row"><span class="q">Is it safe for everyone?</span><span class="ic"></span></div><div class="a-wrap"><span class="a">It's gentle and safe for most adults. It is not recommended with a pacemaker or implant, active blood clots, or during pregnancy, so please ask our team if you're unsure.</span></div></div>
+      <div class="qa"><div class="q-row"><span class="q">What should I bring?</span><span class="ic"></span></div><div class="a-wrap"><span class="a">Just yourself in comfortable clothes. Light snacks and beverages are provided.</span></div></div>
+      <div class="qa"><div class="q-row"><span class="q">How do I reserve?</span><span class="ic"></span></div><div class="a-wrap"><span class="a">Spots are limited, so simply RSVP using the form above to reserve your place.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <img src="images/ageless-logo.png" alt="Institute for Ageless Living" />
+      <p class="footer-blurb">A one-day vibroacoustic sound-healing experience with Treneti.</p>
+      <div class="footer-socials">
+        <a class="footer-soc" href="https://www.instagram.com/agelessliving.institute" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2C4.24 2 2 4.24 2 7v10c0 2.76 2.24 5 5 5h10c2.76 0 5-2.24 5-5V7c0-2.76-2.24-5-5-5H7zm10 2c1.66 0 3 1.34 3 3v10c0 1.66-1.34 3-3 3H7c-1.66 0-3-1.34-3-3V7c0-1.66 1.34-3 3-3h10zM12 7a5 5 0 1 0 0 10 5 5 0 0 0 0-10zm0 2a3 3 0 1 1 0 6 3 3 0 0 1 0-6zm5.5-3a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+        </a>
+        <a class="footer-soc" href="https://www.facebook.com/people/Ageless-Living/61572610702531/" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.56 9.88v-6.99H7.9V12h2.54V9.8c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46H15.2c-1.24 0-1.63.77-1.63 1.56V12h2.78l-.44 2.89h-2.34v6.99A10 10 0 0 0 22 12z"/></svg>
+        </a>
+        <a class="footer-soc" href="https://www.tiktok.com/@agelessliving.ins" target="_blank" rel="noopener" aria-label="TikTok">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M19 7.5a6.5 6.5 0 0 1-3.7-1.13V14a5.5 5.5 0 1 1-5.5-5.5c.34 0 .67.03 1 .1v2.6a3 3 0 1 0 2 2.8V2h2.5a4.5 4.5 0 0 0 3.7 4.4V7.5z"/></svg>
+        </a>
+        <a class="footer-soc" href="https://www.youtube.com/@InstituteforAgelessLiving" target="_blank" rel="noopener" aria-label="YouTube">
+          <svg class="icon" viewBox="0 0 24 24" fill="currentColor"><path d="M23 7.18a3 3 0 0 0-2.11-2.12C19.07 4.5 12 4.5 12 4.5s-7.07 0-8.89.56A3 3 0 0 0 1 7.18 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.82a3 3 0 0 0 2.11 2.12c1.82.56 8.89.56 8.89.56s7.07 0 8.89-.56A3 3 0 0 0 23 16.82 31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.18zM10 15V9l5.2 3-5.2 3z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-label">VISIT</div>
+        <span class="footer-col-val">1551 Professional Lane</span>
+        <span class="footer-col-val">Unit 102</span>
+        <span class="footer-col-val">Longmont, CO 80501</span>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">CONTACT</div>
+        <a class="footer-col-val" href="tel:+17203405522">(720) 340-5522</a>
+        <a class="footer-col-val" href="mailto:wellness@if-al.com">wellness@if-al.com</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-label">HOURS</div>
+        <span class="footer-col-val">Mon to Fri  ·  6:30a to 6:30p</span>
+        <span class="footer-col-val">Sat  ·  by appointment</span>
+        <span class="footer-col-val">Sun  ·  closed</span>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2026 Institute for Ageless Living  ·  Longmont, Colorado</span>
+    <span class="footer-line">A morning of sound &amp; stillness · July 11, 2026.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // Hero staggered entrance
+  var hero=document.querySelector('.hero');
+  requestAnimationFrame(function(){requestAnimationFrame(function(){hero.classList.add('ready');});});
+
+  // Scroll reveals (one-shot, IntersectionObserver)
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
+  },{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+
+  // Sticky header morph after hero
+  var nav=document.getElementById('nav');
+  function onScroll(){
+    nav.classList.toggle('sticky',window.scrollY > (hero.offsetHeight - 90));
+  }
+  window.addEventListener('scroll',onScroll,{passive:true});
+  onScroll();
+
+  // Play button toggles ambient audio
+  var playBtn=document.getElementById('playBtn');
+  var audio=document.getElementById('ambientAudio');
+  var playIcon='<path d="M8 5v14l11-7z"/>';
+  var pauseIcon='<path d="M7 5h4v14H7zM13 5h4v14h-4z"/>';
+  if(playBtn&&audio){
+    playBtn.addEventListener('click',function(){
+      if(audio.paused){
+        audio.play().then(function(){
+          playBtn.classList.add('playing');
+          playBtn.querySelector('svg').innerHTML=pauseIcon;
+        }).catch(function(){});
+      }else{
+        audio.pause();
+        playBtn.classList.remove('playing');
+        playBtn.querySelector('svg').innerHTML=playIcon;
+      }
+    });
+    audio.addEventListener('ended',function(){
+      playBtn.classList.remove('playing');
+      playBtn.querySelector('svg').innerHTML=playIcon;
+    });
+  }
+
+  // FAQ accordion
+  var qas=document.querySelectorAll('.qa');
+  qas.forEach(function(qa){
+    var row=qa.querySelector('.q-row');
+    var wrap=qa.querySelector('.a-wrap');
+    row.addEventListener('click',function(){
+      var isOpen=qa.classList.contains('open');
+      qas.forEach(function(o){o.classList.remove('open');o.querySelector('.a-wrap').style.maxHeight=null;});
+      if(!isOpen){qa.classList.add('open');wrap.style.maxHeight=wrap.scrollHeight+'px';}
+    });
+  });
+
+  // Tablet & mobile: desktop hover effects become click/tap toggles.
+  // "Tap mode" = touch/coarse pointer OR narrow (tablet/mobile) viewport.
+  function tapMode(){
+    return window.matchMedia('(hover: none), (pointer: coarse)').matches || window.innerWidth<=1100;
+  }
+  document.querySelectorAll('.img-tile,.text-tile,.step').forEach(function(el){
+    el.addEventListener('click',function(){
+      if(tapMode()) el.classList.toggle('tap');
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
